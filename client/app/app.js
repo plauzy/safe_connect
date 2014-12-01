@@ -3,6 +3,7 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
+  'shortly.profile',
   'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider) {
@@ -25,8 +26,13 @@ angular.module('shortly', [
       authenticate: true,
       controller: "ShortenController"
     })
+    .when('/profile', {
+      templateUrl: "app/profile/profile.html",
+      authenticate: true,
+      controller: "ProfileController"
+    })
     .otherwise({
-      redirectTo: "/links"
+      redirectTo: "/profile"
     });
 
     // We add our $httpInterceptor into the array
