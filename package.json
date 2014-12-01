@@ -1,0 +1,32 @@
+{
+  "name": "safe_connect",
+  "version": "1.0.0",
+  "description": "Safe Connect ========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/plauer/safe_connect.git"
+  },
+  "author": "plauer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plauer/safe_connect/issues"
+  },
+  "homepage": "https://github.com/plauer/safe_connect",
+  "dependencies": {
+    "bluebird": "^2.3.0",
+    "body-parser": "^1.9.2",
+    "chai": "^1.9.1",
+    "cors": "^2.5.2",
+    "express": "^4.10.1",
+    "lodash": "^2.4.1",
+    "mocha": "^1.21.4",
+    "morgan": "^1.4.1",
+    "mysql": "^2.4.2",
+    "request": "^2.40.0",
+    "sequelize": "^2.0.0-rc2"
+  }
+}
