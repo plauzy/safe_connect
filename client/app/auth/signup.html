@@ -1,9 +1,25 @@
-<div id='signup'>
+<div id='signup' class = "container-fluid">
   <h1>signup</h1>
   <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
+    <input type='text' name = "username" ng-model='user.username'
+    ng-minlength="3" ng-maxlength="12" required>
+    <input type="password" name="password" ng-model='user.password'
+    ng-minlength="5" ng-maxlength="12" required>
+
+    <div class = "row">
+      <p ng-show="signupForm.username.$error.required && signupForm.username.$dirty" class="help-block">Username required.</p>
+      <p ng-show="signupForm.username.$error.minlength && signupForm.username.$dirty" class="help-block">Username minimum of 3 characters.</p>
+      <p ng-show="signupForm.username.$error.maxlength && signupForm.username.$dirty" class="help-block">Username maximum of 12 characters.</p>
+    </div>
+
+    <div class = "row">
+      <p ng-show="signupForm.password.$error.minlength && signupForm.password.$dirty" class="help-block">Password must be at least 5 characters long.</p>
+      <p ng-show="signupForm.password.$error.maxlength && signupForm.password.$dirty" class="help-block">Maximum password length is 12 characters long.</p>
+      <p ng-show="signupForm.password.$error.required && signupForm.password.$dirty" class="help-block">A password is required.</p>
+    </div>
+
+
     <button>signup</button>
+    <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
   </form>
-  <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
 </div>

@@ -1,14 +1,17 @@
-<div id='container'>
-  <form name="shortenForm" ng-submit="submitForm(shortenForm.$valid)" novalidate>
+<div id='container-fluid'>
+  <form name="shortenForm" ng-submit="addLink()" novalidate>
     <div class="form-group">
-    <label>Enter Link</label>
-      <input type="text" name="link" placeholder="http://www.icantthinkofanythingfunny.com" class="form-control" ng-model = "Links" ng-required="true">
-      <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+      <label>Enter Link</label>
+      <input type="url" name="link" placeholder="http://www.icantthinkofanythingfunny.com" class="form-control" ng-model = "link.url" required>
+
+      <div class = "row">
+        <p ng-show="shortenForm.link.$error.url && shortenForm.link.$dirty" class="help-block">Not a valid url.</p>
+        <p ng-show="shortenForm.link.$error.required && shortenForm.link.$dirty" class = "help-block">A url is required. Dumbass.</p>
+      </div>
     </div>
-     <button type="submit" class="btn btn-primary" ng-disabled="shortenForm.$invalid">Shorten</button>
-    </form>
-  </div>
-
-  <a href="#/links">Links</a>
+    <button type="submit" class="btn btn-primary" ng-disabled="shortenForm.$invalid">Shorten</button>
+  </form>
+</div>
 
 
+<a href="#/links">Links</a>
