@@ -10,7 +10,7 @@ angular.module('shortly.auth', [])
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.safe_connect', token);
-        $location.path('/links');
+        $location.path('/profile');
       })
       .catch(function (error) {
         console.error(error);
@@ -21,7 +21,7 @@ angular.module('shortly.auth', [])
     Auth.signup($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.safe_connect', token);
-        $location.path('/links');
+        $location.path('/profile');
       })
       .catch(function (error) {
         console.error(error);
