@@ -11,6 +11,21 @@ var UserSchema = new mongoose.Schema({
     unique: true
   },
 
+  status: {
+    type: String,
+    required: false
+  },
+
+  birthday: {
+    type: Date,
+    required: true
+  },
+
+  // gender: {
+  //   type: String,
+  //   required: true
+  // },
+
   password: {
     type: String,
     required: true
