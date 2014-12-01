@@ -7,6 +7,7 @@ module.exports = {
     var username = req.body.username,
         password = req.body.password;
 
+
     var findUser = Q.nbind(User.findOne, User);
     findUser({username: username})
       .then(function (user) {
@@ -17,6 +18,7 @@ module.exports = {
             .then(function(foundUser) {
               if (foundUser) {
                 var token = jwt.encode(user, 'secret');
+                console.log(token)
                 res.json({token: token});
               } else {
                 return next(new Error('No user'));
@@ -32,6 +34,7 @@ module.exports = {
   signup: function (req, res, next) {
     var username  = req.body.username,
         password  = req.body.password,
+        birthday = req.body.birthday,
         create,
         newUser;
 
@@ -47,7 +50,8 @@ module.exports = {
           create = Q.nbind(User.create, User);
           newUser = {
             username: username,
-            password: password
+            password: password,
+            birthday: birthday
           };
           return create(newUser);
         }
@@ -56,6 +60,7 @@ module.exports = {
         // create token to send back for auth
         var token = jwt.encode(user, 'secret');
         res.json({token: token});
+        console.log(token)
       })
       .fail(function (error) {
         next(error);

@@ -1,11 +1,15 @@
 <div id='signup' class = "container-fluid">
   <h1>signup</h1>
   <form name="signupForm" ng-submit='signup()'>
-    <input type='text' name = "username" ng-model='user.username'
+    <input type='text' placeholder = "username" name = "username" ng-model='user.username'
     ng-minlength="3" ng-maxlength="12" required>
     <input type = "date" name = "birthday" ng-model = "user.birthday">
-    <input type="password" name="password" ng-model='user.password'
+    <input type="password" placeholder = "password" name="password" ng-model='user.password'
     ng-minlength="5" ng-maxlength="12" required>
+
+   <div class = "row">
+      <p ng-show="signupForm.birthday.$error.required && signupForm.username.$dirty" class="help-block">Birthday Required.</p>
+    </div>
 
     <div class = "row">
       <p ng-show="signupForm.username.$error.required && signupForm.username.$dirty" class="help-block">Username required.</p>
