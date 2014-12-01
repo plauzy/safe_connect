@@ -11,6 +11,6 @@ Safe Connect
 - users can search for other users to see their travel history
 
 ## Technologies
-- Node API w/ SQL database
+- Node/Express API w/ Mongo database
 - Angular View Rendering
 - Leaflet.js for mapping
